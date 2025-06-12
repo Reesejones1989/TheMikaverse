@@ -1,34 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.jsx';
-import './App.css'
-import Nav from './components/Nav.jsx'
+import About from './pages/About.jsx';
+import Nav from './components/Nav.jsx';
 import Footer from './components/Footer.jsx';
+import Stars from './components/Stars.jsx';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-     <Nav/>
-      <h1>The MikaVerse</h1>
-      <Home />
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Nav />
+      <Stars />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        {/* Add more routes as needed */}
+      </Routes>
 
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
